@@ -17,7 +17,7 @@
     "prisma": "prisma",
     "graphql-codegen": "graphql-codegen",
     "vite": "vite",
-    "postinstall": "npm rebuild --optional"
+    "postinstall": "npm rebuild --force"
   },
   "type": "module",
   "engines": {
