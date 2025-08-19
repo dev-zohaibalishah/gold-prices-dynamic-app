@@ -1,0 +1,17 @@
+<script>
+  document.addEventListener('DOMContentLoaded', async () => {
+    const productId = {{ product.id | json }};
+    const priceBox = document.querySelector('[data-product-price]');
+
+    try {
+      const res = await fetch("https://YOUR_APP_DOMAIN/api/get-product-price?productId=" + productId);
+      const data = await res.json();
+
+      if (data.price && priceBox) {
+        priceBox.innerText = `Rs. ${parseFloat(data.price).toFixed(2)}`;
+      }
+    } catch (e) {
+      console.error('Price fetch error:', e);
+    }
+  });
+</script>

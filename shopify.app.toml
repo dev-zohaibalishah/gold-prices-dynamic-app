@@ -1,0 +1,37 @@
+# Learn more about configuring your app at https://shopify.dev/docs/apps/tools/cli/configuration
+
+client_id = "d09e17556d8bf3a6e024a9c3b73cc576"
+name = "gold-dynamic-prices-app"
+handle = "gold-dynamic-prices-app-1"
+application_url = "https://router-marketing-ethnic-ct.trycloudflare.com"
+embedded = true
+
+[build]
+include_config_on_deploy = true
+automatically_update_urls_on_dev = true
+dev_store_url = "zohaibalishah.myshopify.com"
+
+[webhooks]
+api_version = "2025-07"
+
+  [[webhooks.subscriptions]]
+  topics = [ "app/uninstalled" ]
+  uri = "/webhooks/app/uninstalled"
+
+  [[webhooks.subscriptions]]
+  topics = [ "app/scopes_update" ]
+  uri = "/webhooks/app/scopes_update"
+
+[access_scopes]
+# Learn more at https://shopify.dev/docs/apps/tools/cli/configuration#access_scopes
+scopes = "write_products"
+
+[auth]
+redirect_urls = [
+  "https://router-marketing-ethnic-ct.trycloudflare.com/auth/callback",
+  "https://router-marketing-ethnic-ct.trycloudflare.com/auth/shopify/callback",
+  "https://router-marketing-ethnic-ct.trycloudflare.com/api/auth/callback"
+]
+
+[pos]
+embedded = false
